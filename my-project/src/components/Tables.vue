@@ -27,16 +27,28 @@
         <template slot-scope="scope">
           <el-button
             size="mini"
+            @click="editBook(scope.$index)">Редактировать
+          </el-button>
+          <el-button
+            size="mini"
             type="danger"
             @click="DeleteBook(scope.$index)">Удалить
           </el-button>
         </template>
       </el-table-column>
     </el-table>
-    <input class="tables__input" v-model="newTableData.title">
-    <input class="tables__input" v-model="newTableData.year">
-    <input class="tables__input" v-model="newTableData.price">
-    <button class="tables__button" @click="addBook">Добавить</button>
+    <input class="tables__input"
+           v-model="newTableData.title"
+            placeholder="Введите название книги">
+    <input class="tables__input"
+           v-model="newTableData.year"
+           placeholder="Введите год издания"
+    >
+    <input class="tables__input"
+           v-model="newTableData.price"
+           placeholder="Введите цену"
+    >
+    <button class="tables__button" @click="addBook">{{titleButton}}</button>
   </div>
 </template>
 
@@ -72,12 +84,18 @@ export default {
         }
       ],
       search: '',
+      edit: false,
       newTableData: {
         id: null,
         title: null,
         year: null,
         price: null,
       }
+    }
+  },
+  computed: {
+    titleButton() {
+      return !this.edit ? 'Добавить' : 'Сохранить'
     }
   },
   mounted() {
@@ -90,13 +108,22 @@ export default {
     }
   },
   methods: {
+    editBook(index) {
+      let editTableData = this.tableData[index];
+      this.newTableData = editTableData;
+      this.edit = true;
+    },
     addBook() {
       if (!this.newTableData) {
         return;
       }
-      console.log(this.tableData)
-      this.newTableData.id = this.tableData[this.tableData.length - 1].id + 1;
-      this.tableData.push(this.newTableData);
+      if (!this.edit) {
+        this.newTableData.id = this.tableData[this.tableData.length - 1].id + 1;
+        this.tableData.push(this.newTableData);
+      } else {
+        const index =  this.tableData.findIndex(item => item.id === this.newTableData.id)
+        this.tableData[index] = this.newTableData;
+      }
       this.saveBooks();
       this.newTableData = {};
     },
@@ -105,7 +132,6 @@ export default {
       this.saveBooks();
     },
     saveBooks() {
-      console.log(this.tableData)
       const parsed = JSON.stringify(this.tableData);
       console.log(parsed)
       localStorage.setItem('tableData', parsed);
