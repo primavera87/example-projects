@@ -32,7 +32,7 @@
           <el-button
             size="mini"
             type="danger"
-            @click="handleDelete(scope.$index, scope.row)">Удалить
+            @click="DeleteBook(scope.$index)">Удалить
           </el-button>
         </template>
       </el-table-column>
@@ -70,12 +70,26 @@ export default {
       search: '',
     }
   },
+  mounted() {
+    if (localStorage.getItem('tableData')) {
+      try {
+        this.cats = JSON.parse(localStorage.getItem('tableData'));
+      } catch(e) {
+        localStorage.removeItem('tableData');
+      }
+    }
+  },
   methods: {
     handleEdit(index, row) {
       console.log(index, row);
     },
-    handleDelete(index, row) {
-      console.log(index, row);
+    DeleteBook(index) {
+      this.tableData.splice(index, 1);
+      this.saveBooks();
+    },
+    saveBooks() {
+      const parsed = JSON.stringify(this.tableData);
+      localStorage.setItem('tableData', parsed);
     }
   },
 }
