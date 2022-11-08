@@ -1,0 +1,22 @@
+.button-back {
+  $this: &;
+
+  background: #E6A84D;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    transition: background 0.3s, color 0.3s;
+    background: #FADCA4;
+  }
+}

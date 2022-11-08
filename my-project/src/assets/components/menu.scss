@@ -1,0 +1,28 @@
+.main-menu {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 30px;
+  &__button {
+    $this: &;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #649BE9;
+    background: rgba(100, 155, 233, 0.07);
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+     &:hover {
+       transition: background 0.3s, color 0.3s;
+       background: #649BE9;
+       color: #ffffff;
+     }
+  }
+}
