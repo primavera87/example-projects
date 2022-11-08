@@ -33,6 +33,10 @@
         </template>
       </el-table-column>
     </el-table>
+    <input class="tables__input" v-model="newTableData.title">
+    <input class="tables__input" v-model="newTableData.year">
+    <input class="tables__input" v-model="newTableData.price">
+    <button class="tables__button" @click="addBook">Добавить</button>
   </div>
 </template>
 
@@ -43,27 +47,37 @@ export default {
     return {
       tableData: [
         {
-        title: 'Азбука. 1 класс. В 2-х частях. Ч. 1',
-        year: '2020',
-        price: '654.00 руб.'
+          id: 1,
+          title: 'Азбука. 1 класс. В 2-х частях. Ч. 1',
+          year: '2020',
+          price: '654.00 руб.'
         },
         {
+          id: 2,
           title: 'Азбука. 1 класс. В 2-х частях. Ч. 2',
           year: '2020',
           price: '654.00 руб.'
         },
         {
+          id: 3,
           title: 'Прописи. 1 класс. В 4-х ч. Ч. 1',
           year: '2019',
           price: '200 руб.'
         },
         {
+          id: 4,
           title: 'Прописи. 1 класс. В 4-х ч. Ч. 2',
           year: '2019',
           price: '200 руб.'
         }
       ],
       search: '',
+      newTableData: {
+        id: null,
+        title: null,
+        year: null,
+        price: null,
+      }
     }
   },
   mounted() {
@@ -71,17 +85,29 @@ export default {
       try {
         this.tableData = JSON.parse(localStorage.getItem('tableData'));
       } catch(e) {
-        localStorage.removeItem('tableData');
+        localStorage.setItem('tableData', this.tableData);
       }
     }
   },
   methods: {
+    addBook() {
+      if (!this.newTableData) {
+        return;
+      }
+      console.log(this.tableData)
+      this.newTableData.id = this.tableData[this.tableData.length - 1].id + 1;
+      this.tableData.push(this.newTableData);
+      this.saveBooks();
+      this.newTableData = {};
+    },
     DeleteBook(index) {
       this.tableData.splice(index, 1);
       this.saveBooks();
     },
     saveBooks() {
+      console.log(this.tableData)
       const parsed = JSON.stringify(this.tableData);
+      console.log(parsed)
       localStorage.setItem('tableData', parsed);
     }
   },

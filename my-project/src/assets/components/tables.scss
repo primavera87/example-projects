@@ -2,4 +2,25 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
+  &__input {
+    width: 256px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #BFC3D5!important;
+    margin-top: 20px;
+  }
+  &__button {
+    margin-top: 20px;
+    background: #5477BD;
+    border-radius: 5px;
+    color: #ffffff;
+    width: 123px;
+    padding: 15px 24px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
