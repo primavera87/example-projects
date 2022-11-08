@@ -27,10 +27,6 @@
         <template slot-scope="scope">
           <el-button
             size="mini"
-            @click="handleEdit(scope.$index, scope.row)">Редактировать
-          </el-button>
-          <el-button
-            size="mini"
             type="danger"
             @click="DeleteBook(scope.$index)">Удалить
           </el-button>
@@ -73,16 +69,13 @@ export default {
   mounted() {
     if (localStorage.getItem('tableData')) {
       try {
-        this.cats = JSON.parse(localStorage.getItem('tableData'));
+        this.tableData = JSON.parse(localStorage.getItem('tableData'));
       } catch(e) {
         localStorage.removeItem('tableData');
       }
     }
   },
   methods: {
-    handleEdit(index, row) {
-      console.log(index, row);
-    },
     DeleteBook(index) {
       this.tableData.splice(index, 1);
       this.saveBooks();
