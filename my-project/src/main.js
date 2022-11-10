@@ -10,6 +10,9 @@ import ElementLocale from 'element-ui/lib/locale';
 
 Vue.config.productionTip = false
 
+import VueApexCharts from 'vue-apexcharts'
+Vue.use(VueApexCharts)
+
 Vue.use(Element, { ElementLocale });
 /* eslint-disable no-new */
 new Vue({

@@ -1,0 +1,39 @@
+.charts {
+  &__diagram {
+    margin-top: 20px;
+  }
+  .arrow_box {
+    padding: 10px;
+    position: relative;
+    border-radius: 5px!important;
+    display: flex;
+    align-items: center;
+    background: #303446;
+  }
+
+  .apexcharts-tooltip {
+    color: #fff;
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+
+  .apexcharts-tooltip span {
+    padding: 5px 10px;
+    display: inline-block;
+  }
+  .apexcharts-xcrosshairs {
+    display: none!important;
+  }
+  .apexcharts-svg.apexcharts-zoomable.hovering-zoom {
+    cursor: inherit;
+  }
+  .apexcharts-menu-icon {
+    display: none;
+  }
+}
+.apex-tooltip {
+  position: absolute;
+  top: -85px;
+  left: -80px;
+  margin-left: 10px;
+}

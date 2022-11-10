@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "apexcharts": "^3.36.3",
     "element-ui": "^2.15.10",
     "vue": "^2.5.2",
     "vue-apexcharts": "^1.6.2",
