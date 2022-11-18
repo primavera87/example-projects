@@ -1,0 +1,68 @@
+.chat-bot {
+  display: flex;
+  flex-direction: column;
+  &__block {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  &__main-chat-block {
+    z-index: 2;
+    overflow-y: auto;
+    display: flex;
+    background: #FFFFFF;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 1px solid #0090D1;
+    border-radius: 30px;
+    width: 700px;
+    height: 600px;
+  }
+  &__avatar {
+    img {
+      display: flex;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+    }
+  }
+  &__title {
+    margin-left: 16px;
+  }
+
+  &__name {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: #0090D1;
+    @media (min-width: 375px) and (max-width: 600px) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+  &__information {
+    display: flex;
+    align-items: center;
+    padding: 16px 48px;
+  }
+  &__header {
+    flex: 0 1 45px;
+    position: relative;
+    border-bottom: 1px solid #0090D1;
+    display: flex;
+  }
+  &__position {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #848181;
+    @media (min-width: 375px) and (max-width: 600px) {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+}
