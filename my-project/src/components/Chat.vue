@@ -9,8 +9,7 @@
           </div>
           <div class="chat-bot__title">
             <div class="chat-bot__name">Черепашка-психолог</div>
-            <div class="chat-bot__position">Бесплатный консультант, помогает справиться при унизительных
-              собеседованиях
+            <div class="chat-bot__position">Бесплатный консультант по подбору специалистов
             </div>
           </div>
         </div>
