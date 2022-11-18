@@ -188,7 +188,40 @@ export default {
         this.scrollTick();
       }
     },
+    isEmpty(str) {
+      if (str === null || str.trim() == '')
+        return true;
 
+      return false;
+    },
+    buildChat(field, startNumArray, endNumArray, column) {
+      if (this.isEmpty(this.messagesAnswers[field])) return;
+
+      Vue.set(this.botsMessages, startNumArray, {
+        question: this.botsMessagesWithQuestions[startNumArray].question,
+        answer: this.messagesAnswers[field],
+        loading: true,
+      });
+
+      setTimeout(() => {
+        Vue.set(this.botsMessages, startNumArray, {
+          question: this.botsMessagesWithQuestions[startNumArray].question,
+          answer: this.messagesAnswers[field],
+          loading: false,
+        });
+
+        Vue.set(this.botsMessages, endNumArray, {
+          question: this.botsMessagesWithQuestions[endNumArray].question,
+          answer: undefined,
+          loading: false,
+        });
+
+        this.enterQuestionUser = [];
+        this.scrollTick();
+      }, 2000);
+
+      this.scrollTick();
+    },
     sendMessage(val) {
       val.preventDefault();
 
