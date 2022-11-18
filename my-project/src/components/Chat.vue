@@ -47,6 +47,9 @@
             </div>
           </div>
         </div>
+        <div class="chat-bot__bot-message" v-else>
+          Спасибо за уделенное время. Наши специалисты свяжутся с вами в ближайшее время.
+        </div>
       </div>
     </div>
   </div>
@@ -144,7 +147,8 @@ export default {
   },
   methods: {
     async actionCredit(value) {
-      if (value === 'до 2000' || value === '5000' || value === '10000') {
+
+      if (value === '2000' || value === '5000' || value === '10000') {
         this.messagesAnswers.sumMessage = value;
         this.chatBotAnswers = []
         this.botsMessages[0] = {

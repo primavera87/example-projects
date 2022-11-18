@@ -1,3 +1,8 @@
+input {
+  outline: none;
+  border: none;
+}
+
 .chat-bot {
   display: flex;
   flex-direction: column;
@@ -149,6 +154,11 @@
     animation: l 2s steps(4) infinite;
     @media (min-width: 375px) and (max-width: 600px) {
       font-size: 30px;
+    }
+  }
+  @keyframes l {
+    to {
+      clip-path: inset(0 -1ch 0 0)
     }
   }
   &__radio {
