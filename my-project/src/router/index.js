@@ -5,6 +5,7 @@ import Tables from '../components/Tables';
 import Charts from "../components/Charts";
 import Chat from "../components/Chat";
 import Faq from "../components/Faq";
+import Roulette from "../components/Roulette";
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/faq',
       name: 'Faq',
       component: Faq
+    },
+    {
+      path: '/roulette',
+      name: 'Roulette',
+      component: Roulette
     }
   ]
 })

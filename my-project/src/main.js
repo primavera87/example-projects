@@ -7,6 +7,7 @@ import './assets/style.scss';
 import 'element-ui/lib/theme-chalk/index.css';
 import Element from 'element-ui';
 import ElementLocale from 'element-ui/lib/locale';
+import gsap from "gsap";
 
 Vue.config.productionTip = false
 
@@ -18,6 +19,7 @@ Vue.use(Element, { ElementLocale });
 new Vue({
   el: '#app',
   router,
+  gsap,
   components: { App },
   template: '<App/>'
 })

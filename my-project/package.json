@@ -12,9 +12,11 @@
   "dependencies": {
     "apexcharts": "^3.36.3",
     "element-ui": "^2.15.10",
+    "gsap": "^3.11.4",
     "vue": "^2.5.2",
     "vue-apexcharts": "^1.6.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "winwheel": "^1.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
