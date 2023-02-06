@@ -2,10 +2,10 @@
   <div>
     <router-link class="button-back" to="/">Назад</router-link>
     <div>
-      <canvas id='canvas' width='880' height='500'>
+      <canvas id='canvas' width='660' height='500'>
         Canvas not supported, use another browser.
       </canvas>
-      <button @click="spin">start</button>
+      <button class="button__start-spin" @click="spin">Забрать приз</button>
     </div>
   </div>
 </template>
@@ -46,18 +46,18 @@ export default {
         const insideRadius = 0;
 
         this.ctx = canvas.getContext("2d");
-        this.ctx.clearRect(0,0,500,500);
+        this.ctx.clearRect(0, 0, 500, 500);
 
-        this.ctx.strokeStyle = "black";
+        this.ctx.strokeStyle = "aquamarine";
         this.ctx.lineWidth = 0;
 
         this.ctx.font = 'bold 12px Helvetica, Arial';
 
-        for(let i = 0; i < this.options.length; i++) {
+        for (let i = 0; i < this.options.length; i++) {
           const angle = this.startAngle + i * this.arc;
           //ctx.fillStyle = colors[i];
           // ctx.fillStyle = getColor(i, options.length);
-          this.ctx.fillStyle = i % 2 ? 'white' : 'black';
+          this.ctx.fillStyle = i % 2 ? '#e3e4e6' : '#100e0e';
 
           this.ctx.beginPath();
           this.ctx.arc(250, 250, outsideRadius, angle, angle + this.arc, false);
@@ -68,9 +68,9 @@ export default {
           this.ctx.save();
           this.ctx.shadowOffsetX = 0;
           this.ctx.shadowOffsetY = 0;
-          this.ctx.shadowBlur    = 0;
-          this.ctx.shadowColor   = "rgb(220,220,220)";
-          this.ctx.fillStyle = i % 2 ? 'black' : 'white';
+          this.ctx.shadowBlur = 0;
+          this.ctx.shadowColor = "rgb(220,220,220)";
+          this.ctx.fillStyle = i % 2 ? '#100e0e' : '#e3e4e6';
           const cos = 250 + Math.cos(angle + this.arc / 2) * textRadius;
           const sin = 250 + Math.sin(angle + this.arc / 2) * textRadius;
           this.ctx.translate(cos, sin);
@@ -84,7 +84,7 @@ export default {
       }
     },
     arrow(outsideRadius) {
-      this.ctx.fillStyle = "blue";
+      this.ctx.fillStyle = "#3AD1FF";
       this.ctx.beginPath();
       this.ctx.moveTo(250 - 4, 250 - (outsideRadius + 5));
       this.ctx.lineTo(250 + 4, 250 - (outsideRadius + 5));
@@ -128,14 +128,29 @@ export default {
       this.ctx.restore();
     },
     easeOut(t, b, c, d) {
-      const ts = (t/=d)*t;
-      const tc = ts*t;
-      return b+c*(tc + -3*ts + 3*t);
+      const ts = (t /= d) * t;
+      const tc = ts * t;
+      return b + c * (tc + -3 * ts + 3 * t);
     }
   }
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.button {
+  &__start-spin {
+    color: #42D3FF;
+    background: #100E0E;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 6px 16px;
+    border: 1px solid #42D3FF;
+    filter: drop-shadow(0px 4px 21px #46D4FF);
+    border-radius: 3px !important;
+    cursor: pointer;
+  }
+}
 </style>
